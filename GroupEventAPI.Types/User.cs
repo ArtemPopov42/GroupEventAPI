@@ -9,10 +9,14 @@ using System.Threading.Tasks;
 
 namespace GroupEventAPI.Types
 {
-    internal class User: IdentityUser
+    public class User: IdentityUser
     {
-        List<Event> _events;
+        public List<Event> Events;
 
+        public User() : base()
+        {
+            Events = new List<Event>();
+        }
         public User(string email, string username):base()
         {
             //identityUser fields
@@ -20,7 +24,7 @@ namespace GroupEventAPI.Types
             UserName = username;
             //
 
-            _events = new List<Event>();
+            Events = new List<Event>();
         }
     }
 }

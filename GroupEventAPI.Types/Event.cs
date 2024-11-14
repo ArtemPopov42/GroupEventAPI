@@ -6,18 +6,29 @@ using System.Threading.Tasks;
 
 namespace GroupEventAPI.Types
 {
-    internal class Event
+    public class Event
     {
+        public string EventId { get; set; }
         public string Description { get; set; }
-        User _creator;
-        DateTime _date;
+        public string CreatorId { get; set; }
+        public User Creator { get; set; }
+        public DateTime EndDate { get; set; }
 
-
+        public Event()
+        {
+            EventId = Guid.NewGuid().ToString();
+            Description = "";
+            Creator = new User();
+            CreatorId = Creator.Id;
+            EndDate = default;
+        }
         public Event(User user, string description = "", DateTime date = default)
         {
+            EventId = Guid.NewGuid().ToString();
             Description = description;
-            _creator = user;
-            _date = date;
+            Creator = user;
+            CreatorId = Creator.Id;
+            EndDate = date;
         }
     }
 }
