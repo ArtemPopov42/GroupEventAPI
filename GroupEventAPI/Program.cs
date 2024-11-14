@@ -11,6 +11,7 @@ namespace GroupEventAPI
             var builder = WebApplication.CreateBuilder(args);
 
             builder.Services.ConnectDbContext(builder.Configuration.GetConnectionString("Default"));
+            builder.Services.AddRepos();
 
             var app = builder.Build();
 

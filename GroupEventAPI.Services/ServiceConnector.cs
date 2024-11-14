@@ -10,11 +10,17 @@ using Microsoft.EntityFrameworkCore;
 
 namespace GroupEventAPI.Services
 {
-    public static class ServiceConnector
+    public static class DataConnector
     {
         public static void ConnectDbContext(this IServiceCollection serviceCollection, string connectionString)
         {
             serviceCollection.AddDbContext<ApplicationDbContext>(context => context.UseSqlServer(connectionString));
+        }
+
+        public static void AddRepos(this IServiceCollection serviceCollection)
+        {
+            serviceCollection.AddTransient<IUserRepo, UserRepo>();
+            serviceCollection.AddTransient<IEventRepo, EventRepo>();
         }
     }
 }
