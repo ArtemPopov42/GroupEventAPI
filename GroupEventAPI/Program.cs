@@ -1,5 +1,5 @@
+using GroupEventAPI.Services;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.AspNetCore.Builder;
 using System.Text;
 
 namespace GroupEventAPI
@@ -10,16 +10,9 @@ namespace GroupEventAPI
         {
             var builder = WebApplication.CreateBuilder(args);
 
-
+            builder.Services.ConnectDbContext(builder.Configuration.GetConnectionString("Default"));
 
             var app = builder.Build();
-
-            app.UseHttpsRedirection();
-
-            app.UseAuthorization();
-
-
-            app.MapControllers();
 
             app.Run();
         }

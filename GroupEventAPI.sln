@@ -6,15 +6,21 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GroupEventAPI", "GroupEventAPI\GroupEventAPI.csproj", "{31C246D9-79A6-4065-A35F-D97A11A8A3E3}"
 	ProjectSection(ProjectDependencies) = postProject
 		{12C8933D-DEBD-43F3-86EC-310A4F418160} = {12C8933D-DEBD-43F3-86EC-310A4F418160}
-		{3245DE08-8132-4D4D-9CE9-DD2E560B778B} = {3245DE08-8132-4D4D-9CE9-DD2E560B778B}
 		{A10171A2-EBCD-481D-A12F-F5E607F29D72} = {A10171A2-EBCD-481D-A12F-F5E607F29D72}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GroupEventAPI.Types", "GroupEventAPI.Types\GroupEventAPI.Types.csproj", "{12C8933D-DEBD-43F3-86EC-310A4F418160}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GroupEventAPI.Types", "GroupEventAPI.Types\GroupEventAPI.Types.csproj", "{12C8933D-DEBD-43F3-86EC-310A4F418160}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GroupEventAPI.Data", "GroupEventAPI.Data\GroupEventAPI.Data.csproj", "{3245DE08-8132-4D4D-9CE9-DD2E560B778B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GroupEventAPI.Data", "GroupEventAPI.Data\GroupEventAPI.Data.csproj", "{3245DE08-8132-4D4D-9CE9-DD2E560B778B}"
+	ProjectSection(ProjectDependencies) = postProject
+		{12C8933D-DEBD-43F3-86EC-310A4F418160} = {12C8933D-DEBD-43F3-86EC-310A4F418160}
+	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GroupEventAPI.Services", "GroupEventAPI.Services\GroupEventAPI.Services.csproj", "{A10171A2-EBCD-481D-A12F-F5E607F29D72}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GroupEventAPI.Services", "GroupEventAPI.Services\GroupEventAPI.Services.csproj", "{A10171A2-EBCD-481D-A12F-F5E607F29D72}"
+	ProjectSection(ProjectDependencies) = postProject
+		{12C8933D-DEBD-43F3-86EC-310A4F418160} = {12C8933D-DEBD-43F3-86EC-310A4F418160}
+		{3245DE08-8132-4D4D-9CE9-DD2E560B778B} = {3245DE08-8132-4D4D-9CE9-DD2E560B778B}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
