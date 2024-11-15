@@ -15,7 +15,7 @@ namespace GroupEventAPI
 
             var app = builder.Build();
 
-            app.Run();
+            app.Run(); 
         }
     }
 }
