@@ -7,13 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Identity" Version="2.2.0" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.12" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\GroupEventAPI.Data\GroupEventAPI.Data.csproj" />
-    <ProjectReference Include="..\GroupEventAPI.Models\GroupEventAPI.Models.csproj" />
     <ProjectReference Include="..\GroupEventAPI.Types\GroupEventAPI.Types.csproj" />
   </ItemGroup>
 

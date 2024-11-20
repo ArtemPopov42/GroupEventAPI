@@ -28,7 +28,7 @@ namespace GroupEventAPI.Data
             var eventModel = modelBuilder.Entity<Event>();
             eventModel.HasKey(e => e.EventId);
             eventModel.Property(e => e.Description);
-            eventModel.Property(e => e.EndDate)
+            eventModel.Property(e => e.Date)
                       .HasColumnType("datetime2");
             eventModel.HasOne(e => e.Creator)
                       .WithMany(u => u.Events)

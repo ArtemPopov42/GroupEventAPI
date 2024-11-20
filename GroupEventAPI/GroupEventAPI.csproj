@@ -22,6 +22,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\GroupEventAPI.Models\GroupEventAPI.Models.csproj" />
     <ProjectReference Include="..\GroupEventAPI.Services\GroupEventAPI.Services.csproj" />
     <ProjectReference Include="..\GroupEventAPI.Types\GroupEventAPI.Types.csproj" />
   </ItemGroup>
