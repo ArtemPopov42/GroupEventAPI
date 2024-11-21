@@ -1,7 +1,9 @@
 ﻿using GroupEventAPI.Models;
 using GroupEventAPI.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
+using System.Security.Claims;
 
 namespace GroupEventAPI.Controllers
 {
@@ -28,6 +30,29 @@ namespace GroupEventAPI.Controllers
 
             return Created("Account/Register", result);
         }
-        
+
+        [HttpPost("Login")]
+        public async Task<IActionResult> login([FromBody] LoginRequestModel loginRequest)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            var result = await _accountService.Login(loginRequest);
+
+            if (!result.Success)
+            {
+                return Unauthorized();
+            }
+            return Ok(result);
+        }
+
+        [Authorize]
+        [HttpGet("test")]
+        public IActionResult test()
+        {
+            return Ok(DateTime.UtcNow);
+        }
     }
 }

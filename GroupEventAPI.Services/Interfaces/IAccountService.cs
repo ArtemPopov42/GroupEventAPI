@@ -11,5 +11,6 @@ namespace GroupEventAPI.Services
     public interface IAccountService
     {
         public Task<IdentityResult> Register(UserRegisterRequestModel userRegisterRequestModel);
+        public Task<LoginResponseModel> Login(LoginRequestModel loginRequest);
     }
 }
