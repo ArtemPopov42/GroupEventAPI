@@ -12,7 +12,7 @@ namespace GroupEventAPI.Types
         public string Description { get; set; }
         public string CreatorId { get; set; }
         public User Creator { get; set; }
-        public DateTime Date { get; set; }
+        public DateTime EndDate { get; set; }
 
         public Event()
         {
@@ -20,7 +20,7 @@ namespace GroupEventAPI.Types
             Description = "";
             Creator = new User();
             CreatorId = Creator.Id;
-            Date = default;
+            EndDate = default;
         }
         public Event(User user, string description = "", DateTime date = default)
         {
@@ -28,7 +28,7 @@ namespace GroupEventAPI.Types
             Description = description;
             Creator = user;
             CreatorId = Creator.Id;
-            Date = date;
+            EndDate = date;
         }
     }
 }

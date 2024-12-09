@@ -15,11 +15,21 @@ namespace GroupEventAPI
         {
             var builder = WebApplication.CreateBuilder(args);
 
+            builder.Services.AddCors(options =>
+            {
+                options.AddPolicy(name: "MyPolicy",
+                    policy =>
+                    {
+                        policy.AllowAnyOrigin();
+                    });
+            });
+
             builder.Services.ConnectDbContext(builder.Configuration.GetConnectionString("Default"));
 
             builder.Services.AddRepos();
 
             builder.Services.AddTransient<IAccountService, AccountService>();
+            builder.Services.AddTransient<IUserService, UserService>();
 
             builder.Services.AddControllers();
 
@@ -51,6 +61,8 @@ namespace GroupEventAPI
 
             var app = builder.Build();
             app.UseRouting();
+
+            app.UseCors("MyPolicy");
 
             app.UseAuthentication();
             app.UseAuthorization();

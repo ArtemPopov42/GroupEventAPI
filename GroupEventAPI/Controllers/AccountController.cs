@@ -8,7 +8,7 @@ using System.Security.Claims;
 namespace GroupEventAPI.Controllers
 {
     [ApiController]
-    [Route("Account")]
+    [Route("api/Account")]
     public class AccountController:ControllerBase
     {
         private readonly IAccountService _accountService;

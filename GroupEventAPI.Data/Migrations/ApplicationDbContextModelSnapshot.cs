@@ -35,7 +35,7 @@ namespace GroupEventAPI.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("Date")
+                    b.Property<DateTime>("EndDate")
                         .HasColumnType("datetime2");
 
                     b.HasKey("EventId");

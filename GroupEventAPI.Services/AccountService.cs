@@ -1,4 +1,5 @@
-﻿using GroupEventAPI.Models;
+﻿using GroupEventAPI.Data;
+using GroupEventAPI.Models;
 using GroupEventAPI.Types;
 
 using Microsoft.AspNetCore.Identity;
@@ -18,15 +19,15 @@ namespace GroupEventAPI.Services
 {
     public class AccountService: IAccountService
     {
-        private readonly UserManager<User> _userManager;
-        private readonly SignInManager<User> _signInManager;
+
+        private readonly IUserRepo _userRepo;
+        
 
         private readonly IConfiguration _configuration;
 
-        public AccountService(UserManager<User> userManager, SignInManager<User> signInManager, IConfiguration configuration)
+        public AccountService(IUserRepo userRepo, IConfiguration configuration)
         {
-            _userManager = userManager;
-            _signInManager = signInManager;
+            _userRepo = userRepo;
             _configuration = configuration;
         }
 
@@ -36,14 +37,14 @@ namespace GroupEventAPI.Services
                 Email = userRegisterRequestModel.Email,
                 UserName = userRegisterRequestModel.UserName
             };
-            var result = await _userManager.CreateAsync(newUser, userRegisterRequestModel.Password);
+            var result = await _userRepo.Create(newUser, userRegisterRequestModel.Password);
             
             return result;
         }
 
         public async Task<LoginResponseModel> Login(LoginRequestModel loginRequest)
         {
-            var user = await _userManager.FindByEmailAsync(loginRequest.Email);
+            var user = await _userRepo.FindByEmail(loginRequest.Email);
             if(user == null)
             {
                 return new LoginResponseModel
@@ -55,7 +56,7 @@ namespace GroupEventAPI.Services
                 };
             }
 
-            var res = await _signInManager.PasswordSignInAsync(user, loginRequest.Password, false, false);
+            var res = await _userRepo.SignIn(user, loginRequest.Password);
             if (!res.Succeeded)
             {
                 return new LoginResponseModel
