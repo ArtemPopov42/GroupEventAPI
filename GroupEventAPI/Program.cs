@@ -21,6 +21,8 @@ namespace GroupEventAPI
                     policy =>
                     {
                         policy.AllowAnyOrigin();
+                        policy.AllowAnyMethod();
+                        policy.AllowAnyHeader();
                     });
             });
 
@@ -31,7 +33,7 @@ namespace GroupEventAPI
             builder.Services.AddTransient<IAccountService, AccountService>();
             builder.Services.AddTransient<IUserService, UserService>();
 
-            builder.Services.AddControllers();
+            builder.Services.AddControllers().AddNewtonsoftJson();
 
             builder.Services.AddIdentity<User, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();

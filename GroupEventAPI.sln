@@ -24,7 +24,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GroupEventAPI.Services", "G
 		{BFB07C83-5A66-4775-8E6A-7710EAD865EE} = {BFB07C83-5A66-4775-8E6A-7710EAD865EE}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GroupEventAPI.Models", "GroupEventAPI.Models\GroupEventAPI.Models.csproj", "{BFB07C83-5A66-4775-8E6A-7710EAD865EE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GroupEventAPI.Models", "GroupEventAPI.Models\GroupEventAPI.Models.csproj", "{BFB07C83-5A66-4775-8E6A-7710EAD865EE}"
 	ProjectSection(ProjectDependencies) = postProject
 		{12C8933D-DEBD-43F3-86EC-310A4F418160} = {12C8933D-DEBD-43F3-86EC-310A4F418160}
 	EndProjectSection

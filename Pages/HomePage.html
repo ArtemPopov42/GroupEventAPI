@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+
+<head> 
+    <title>Home</title>
+</head>
+
+<body>  
+    <form id="SignInForm">
+        <label for="emailSI">Email:</label>
+        <input type="text" id="emailSI" name="email" required><br>
+        <label for="passwordSI">Password:</label>
+        <input type="password" id="passwordSI" name="password" required><br>
+        <button type="submit">Sign in</button>
+    </form>
+    
+    <form id="SignUpForm" hidden>
+        <label for="usernameSU">Username:</label>
+        <input type="text" id="usernameSU" name="username" required ><br>
+        <label for="emailSU">Email:</label>
+        <input type="text" id="emailSU" name="email" required><br>
+        <label for="passwordSU">Password:</label>
+        <input type="password" id="passwordSU" name="password" required><br>
+        <button type="submit">Sign up</button>
+    </form>
+    
+    <label id="SwitchFormLbl" for="SwitchFormBtn">If you don't have an account: </label>
+    <button id="SwitchFormBtn" onclick="SwitchForm()">Sugn up</button>
+
+    <script src="HomeScripts.js"></script>
+</body>

@@ -3,6 +3,7 @@ using GroupEventAPI.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
+using Microsoft.EntityFrameworkCore.Query.Internal;
 using System.Security.Claims;
 
 namespace GroupEventAPI.Controllers
@@ -19,6 +20,7 @@ namespace GroupEventAPI.Controllers
         }
 
         [HttpPost("Register")]
+        [Consumes("application/json")]
         public async Task<IActionResult> Register([FromBody] UserRegisterRequestModel newUser)
         {
             if (!ModelState.IsValid)
@@ -32,6 +34,7 @@ namespace GroupEventAPI.Controllers
         }
 
         [HttpPost("Login")]
+        [Consumes("application/json")]
         public async Task<IActionResult> login([FromBody] LoginRequestModel loginRequest)
         {
             if (!ModelState.IsValid)
@@ -48,11 +51,21 @@ namespace GroupEventAPI.Controllers
             return Ok(result);
         }
 
-        [Authorize]
-        [HttpGet("test")]
-        public IActionResult test()
+        public class testRequest
         {
-            return Ok(DateTime.UtcNow);
+            public string name { get; set; }
+            public string text { get; set; }
+        }
+
+        //[Authorize]
+        [HttpPost("test")]
+        public IActionResult test([FromBody] testRequest request)
+        {
+            Console.WriteLine("test");
+            return Ok(new 
+            {
+                text = request.text,
+            });
         }
     }
 }

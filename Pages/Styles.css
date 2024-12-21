@@ -1,0 +1,27 @@
+.menu{
+    display: flex;
+    justify-content: flex-start;
+}
+
+.menu *{
+    margin: 0 6px;
+}
+
+.menu *:first-child{
+    margin-left: 0px;
+}
+
+.events {
+    width: 100%;
+}
+
+.events div {
+    width: 50%;
+    float: left;
+}
+
+li {
+    line-break: auto;
+    list-style-position: inside;
+    list-style-type: none;
+}

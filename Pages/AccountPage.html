@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<Head>
+    <link rel="stylesheet" href="Styles.css">
+</Head>
+<body>
+    <div class="menu">
+        <div>Group Event</div>
+        <button onclick="Exit()">Exit</button>
+    </div>
+
+    <div class="events">
+        <div class="list">
+            <ul id="eventList"></ul>
+            <button onclick="LoadList()">test</button>
+        </div>
+        <div>
+            <p>Create new event</p>
+            <label for="eventDescInput">Event description: </label><br>
+            <input type="text" id="eventDescInput"><br>
+            <label for="eventDueToInput">Event time: </label><br>
+            <input type="datetime-local" id="eventTimeInput"><br>
+            <button onclick="CreateEvent()">Create</button>
+        </div>
+    </div>
+
+    <script src="AccountScript.js"></script>
+</body>
